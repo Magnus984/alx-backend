@@ -2,4 +2,4 @@
 /venv/
 */test*
 */messages.pot
-0x02-i18n/babel.cfg
+/0x02-i18n/babel.cfg

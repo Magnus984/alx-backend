@@ -45,7 +45,7 @@ def get_user():
     """returns user dictionary or None"""
     try:
         user_id = int(request.args.get('login_as'))
-        return users[user_id]
+        return users.get(user_id)
     except TypeError:
         return None
 
