@@ -55,7 +55,7 @@ def before_request():
     """finds a user if any and set it as a global"""
     user = get_user()
     if user:
-        g.user = user
+        setattr(g, 'user', user)
 
 
 if __name__ == '__main__':
