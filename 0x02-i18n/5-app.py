@@ -23,16 +23,17 @@ class Config:
 
 app = Flask(__name__)
 app.config.from_object(Config)
-babel = Babel(app)
 
 
-@babel.localeselector
 def get_locale():
     """Picks best language based on client request"""
     locale = request.args.get('locale')
     if locale and locale in app.config['LANGUAGES']:
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+babel = Babel(app, locale_selector=get_locale)
 
 
 @app.route("/", methods=["GET"])
